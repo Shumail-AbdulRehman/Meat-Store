@@ -63,7 +63,7 @@ function Product() {
           <img
             src={product.image}
             alt={product.title}
-            className="w-full h-[430px] rounded-lg"
+            className="w-full h-auto rounded-lg"
           />
         </div>
 
