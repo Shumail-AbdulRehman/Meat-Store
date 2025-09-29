@@ -2,6 +2,7 @@
 import React from 'react'
 import heroImage from "../assets/plzwork.jpg"
 import { ArrowRight } from "lucide-react"
+import { Link } from 'react-router-dom'
 
 function Store() {
   return (
@@ -25,10 +26,10 @@ function Store() {
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-          <button className="flex items-center gap-2 bg-red-600 hover:bg-red-700 px-6 py-3 rounded-full font-semibold text-lg shadow transition text-white">
+          <Link to={"/categories"} className="flex items-center gap-2 bg-red-600 hover:bg-red-700 px-6 py-3 rounded-full font-semibold text-lg shadow transition text-white">
             Explore Our Categories
             <ArrowRight size={20} />
-          </button>
+          </Link>
         </div>
 
         <ul className="mt-4 flex flex-wrap gap-3 text-sm md:text-base">
