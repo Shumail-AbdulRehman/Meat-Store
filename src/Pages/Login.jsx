@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Mail, Lock, LogIn } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -20,6 +20,29 @@ function Login() {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
+
+useEffect(() => {
+  const fetchUser = async () => {
+    try {
+      const userData = await authService.getCurrentUser();
+      if (user) {
+        dispatch(login(userData));
+      }
+    } catch (err) {
+      console.log("No logged in user");
+    }
+  };
+
+  fetchUser();
+}, []);
+
+  const loginWithGoogle=async()=>
+  {
+    setLoading(true)
+    authService.createAccountWithGoogle();
+    setLoading(false)
+    
+  }
 
   const onSubmit = async (data) => {
     setMessage(null);
@@ -133,7 +156,19 @@ function Login() {
             <LogIn size={18} />
             {loading ? "Signing In..." : "Sign In"}
           </button>
+
+         
         </form>
+
+         <button
+
+            onClick={loginWithGoogle}
+            disabled={loading}
+            className="w-full mt-5 flex items-center justify-center gap-2 bg-red-950 hover:bg-red-600 text-white py-2 rounded-lg font-semibold transition disabled:opacity-50"
+          >
+            <LogIn size={18} />
+            {loading ? "Signing In..." : "Continue With Google"}
+          </button>
 
         <p className="text-white text-md text-center mt-6">
           Don't have an account{" "}
