@@ -37,7 +37,6 @@ function Testimonials() {
               key={index}
               className="bg-gradient-to-br from-gray-900 via-black to-gray-800 border border-red-700/40 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300"
             >
-              {/* Stars */}
               <div className="flex gap-1 mb-4 text-red-500">
                 {[...Array(5)].map((_, i) => (
                   <Star
