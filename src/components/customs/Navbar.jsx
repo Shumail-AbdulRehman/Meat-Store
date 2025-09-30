@@ -146,7 +146,7 @@ function Navbar() {
             className={({ isActive }) =>
               `w-full py-2 px-3 rounded ${
                 isActive
-                  ? "bg-red-600 text-white font-semibold"
+                  ? "bg-black text-white font-semibold"
                   : "text-gray-900 hover:bg-gray-100"
               }`
             }
@@ -160,7 +160,7 @@ function Navbar() {
             className={({ isActive }) =>
               `w-full py-2 px-3 rounded ${
                 isActive
-                  ? "bg-red-600 text-white font-semibold"
+                  ? "bg-black text-white font-semibold"
                   : "text-gray-900 hover:bg-gray-100"
               }`
             }
@@ -174,7 +174,7 @@ function Navbar() {
             className={({ isActive }) =>
               `w-full py-2 px-3 rounded ${
                 isActive
-                  ? "bg-red-600 text-white font-semibold"
+                  ? "bg-black text-white font-semibold"
                   : "text-gray-900 hover:bg-gray-100"
               }`
             }
@@ -188,7 +188,7 @@ function Navbar() {
             className={({ isActive }) =>
               `w-full py-2 px-3 rounded ${
                 isActive
-                  ? "bg-red-600 text-white font-semibold"
+                  ? "bg-black text-white font-semibold"
                   : "text-gray-900 hover:bg-gray-100"
               }`
             }

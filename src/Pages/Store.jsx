@@ -3,10 +3,12 @@ import React from 'react'
 import heroImage from "../assets/plzwork.jpg"
 import { ArrowRight } from "lucide-react"
 import { Link } from 'react-router-dom'
+import Testimonials from '../components/customs/Testimonials'
 
 function Store() {
   return (
-    <section className="w-full h-auto lg:h-[900px] bg-gradient-to-tr from-red-200 via-red-100 to-white
+    <div className='flex flex-col'>
+          <section className="w-full h-auto lg:h-[900px] bg-gradient-to-tr from-red-200 via-red-100 to-white
  text-gray-900 flex flex-col pt-10 lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24">
       
       <div className="flex-1 sm:pl-10 lg:pl-0 flex flex-col justify-center text-center md:text-left space-y-6">
@@ -58,7 +60,12 @@ function Store() {
           className="rounded-2xl shadow-lg object-cover w-full max-w-lg h-[600px]"
         />
       </div>
+     
     </section>
+
+    <Testimonials/>
+    </div>
+
   )
 }
 
