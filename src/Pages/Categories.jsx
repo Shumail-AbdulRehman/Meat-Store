@@ -45,7 +45,7 @@ function Categories() {
 
   return (
     <div className="min-h-screen w-full bg-gray-100 text-gray-900">
-      <div className="hidden lg:block">
+      <div className="hidden  sm:block">
         <CategoriesList
           categories={categories}
           active={selectedCategory}
@@ -53,7 +53,7 @@ function Categories() {
         />
       </div>
 
-      <div className="lg:hidden flex items-center justify-between px-6 py-4 bg-white shadow-sm">
+      <div className="sm:hidden sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-white shadow-sm">
         <h2 className="text-xl font-bold text-red-600">{selectedCategory}</h2>
         <Menu
           onClick={() => setSideOpen(true)}

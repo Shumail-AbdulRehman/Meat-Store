@@ -10,16 +10,14 @@ function Navbar() {
   const [sideOpen, setSideOpen] = useState(false);
 
   return (
-    <header className="bg-[#C62828] shadow-sm">
+    <header className="bg-[#C62828]  shadow-sm">
       <div className="flex justify-between items-center px-6 py-4">
-        {/* Logo */}
         <div className="flex items-center gap-2">
           <span className="text-2xl font-extrabold tracking-wide text-white">
             <span className="font-extrabold">Madina</span> Meats
           </span>
         </div>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8 text-lg font-bold">
           <NavLink
             to="/"
@@ -66,7 +64,6 @@ function Navbar() {
           </NavLink>
         </nav>
 
-        {/* Right section */}
         <div className="hidden lg:flex items-center gap-4">
           <Link
             to={"/cart"}
@@ -93,7 +90,6 @@ function Navbar() {
           )}
         </div>
 
-        {/* Mobile Hamburger */}
         <div className="lg:hidden">
           <Menu
             onClick={() => setSideOpen(true)}
@@ -102,7 +98,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Sidebar */}
       {sideOpen && (
         <div
           className="gap-4 px-6 py-6 md:hidden font-medium"
@@ -182,7 +177,6 @@ function Navbar() {
             Contact Us
           </NavLink>
 
-          {/* Cart + Auth on Mobile */}
           <Link
             to={"/cart"}
             onClick={() => setSideOpen(false)}

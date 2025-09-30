@@ -20,7 +20,7 @@ function Store() {
         </h1>
 
         <p className="max-w-xl text-gray-600 text-lg">
-          Grass-fed beef, heritage pork, and pasture-raised poultry — carefully curated by 
+          Grass-fed beef, and pasture-raised poultry — carefully curated by 
           experts and delivered through a strict cold-chain, so every cut arrives fresh and flawless. 
           That’s <span className="text-red-500 font-semibold">🔥 red-hot</span> quality you can taste.
         </p>
