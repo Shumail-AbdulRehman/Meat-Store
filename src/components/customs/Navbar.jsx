@@ -29,8 +29,8 @@ function Navbar() {
   ✅ Trusted by Families for Fresh Halal Meat Everyday        </span>
       </Marquee>
     </div>
-          <header className="bg-gradient-to-br from-black via-neutral-900 to-neutral-800  shadow-sm">
-      <div className="flex justify-between items-center px-6 py-4">
+          <header className="bg-gradient-to-br from-black via-neutral-900 to-neutral-800 top-0 z-50 sticky shadow-sm">
+      <div className="flex justify-between  items-center px-6 py-4">
         <div className="flex items-center gap-2">
           <span className="text-2xl font-extrabold tracking-wide text-white">
             <span className="font-extrabold">Madina</span> Meats
@@ -42,7 +42,7 @@ function Navbar() {
             to="/"
             className={({ isActive }) =>
               isActive
-                ? "text-white font-semibold"
+                ? "text-red-500 font-semibold"
                 : "text-gray-200 hover:text-gray-100 transition"
             }
           >
@@ -53,7 +53,7 @@ function Navbar() {
             to="/categories"
             className={({ isActive }) =>
               isActive
-                ? "text-white font-semibold"
+                ? "text-red-500 font-semibold"
                 : "text-gray-200 hover:text-gray-100 transition"
             }
           >
@@ -64,7 +64,7 @@ function Navbar() {
             to="/about-us"
             className={({ isActive }) =>
               isActive
-                ? "text-white font-semibold"
+                ? "text-red-500 font-semibold"
                 : "text-gray-200 hover:text-gray-100 transition"
             }
           >
@@ -75,7 +75,7 @@ function Navbar() {
             to="/contact-us"
             className={({ isActive }) =>
               isActive
-                ? "text-white font-semibold"
+                ? "text-red-500 font-semibold"
                 : "text-gray-200 hover:text-gray-100 transition"
             }
           >

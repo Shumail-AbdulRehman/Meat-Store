@@ -18,12 +18,17 @@ function Testimonials() {
       feedback:
         "The quality is unmatched — juicy cuts and great taste. I’m never going back to the supermarket.",
     },
+    // {
+    //   name: "Shumail Abdul",
+    //   feedback:
+    //   "Madina Meats always delivers fresh, tender, 100% halal meat right to my door. Fast service and top quality every time!"
+    // }
   ]
 
   return (
-    <section className="bg-gradient-to-tr  from-black via-gray-900 to-red-950 text-white py-20 px-6 md:px-16 lg:px-24">
+    <section className=" text-white py-13 px-6 md:px-16 lg:px-24">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-extrabold mb-12 text-red-500 drop-shadow-lg">
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-12 text-black ">
           What Our Customers Say
         </h2>
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">

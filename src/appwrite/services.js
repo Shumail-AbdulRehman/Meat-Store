@@ -83,6 +83,20 @@ export class Service {
     }
   }
 
+  async getFeaturedProducts() {
+    try {
+      return await this.databases.listDocuments(
+        conf.appwriteDatabaseId,
+        conf.appwriteCollectionId,
+        [Query.equal("isFeatured", true)]
+
+      );
+    } catch (error) {
+      console.log("Appwrite Service :: getProductsByCategory :: error", error);
+      return false;
+    }
+  }
+
   async getProducts() {
     try {
       return await this.databases.listDocuments(

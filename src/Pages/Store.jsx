@@ -4,11 +4,12 @@ import heroImage from "../assets/plzwork.jpg"
 import { ArrowRight } from "lucide-react"
 import { Link } from 'react-router-dom'
 import Testimonials from '../components/customs/Testimonials'
+import FeaturedProducts from '../components/customs/FeaturedProducts'
 
 function Store() {
   return (
-    <div className='flex flex-col'>
-          <section className="w-full h-auto lg:h-[900px] bg-gradient-to-tr from-red-200 via-red-100 to-white
+    <div className='flex flex-col w-full h-full bg-gradient-to-tr from-red-200 via-red-100 to-white'>
+          <section className="w-full h-auto lg:h-auto 
  text-gray-900 flex flex-col pt-10 lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24">
       
       <div className="flex-1 sm:pl-10 lg:pl-0 flex flex-col justify-center text-center md:text-left space-y-6">
@@ -53,15 +54,25 @@ function Store() {
         </ul>
       </div>
 
-      <div className="flex-1 mt-10 md:mt-0 flex justify-center">
+      <div className="flex-1 mt-7 md:mt-0 flex justify-center">
         <img
           src={heroImage}
           alt="Premium Meat"
-          className="rounded-2xl shadow-lg object-cover w-full max-w-lg h-[600px]"
+          className="rounded-2xl shadow-lg mt-9 object-cover w-full max-w-lg h-[600px]"
         />
       </div>
      
     </section>
+
+<div className="xl:w-300 w-80 lg:w-200 mx-auto h-3 mt-40 rounded-full bg-gradient-to-r from-red-400 via-red-600 to-red-400 shadow-lg"></div>
+
+    <div className='flex  lg:flex-row items-center justify-center gap-6'>
+      
+        <FeaturedProducts/>
+
+    </div>
+
+    <div className="xl:w-300 w-80 lg:w-200 mx-auto h-3 mt-40 rounded-full bg-gradient-to-r from-red-400 via-red-600 to-red-400 shadow-lg"></div>
 
     <Testimonials/>
     </div>
