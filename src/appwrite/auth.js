@@ -58,7 +58,7 @@ export class AuthService {
     async createAccountWithGoogle()
     {
         try {
-            this.account.createOAuth2Session('google','http://localhost:5173/','http://localhost:5173/fail')
+            this.account.createOAuth2Session('google','https://meat-store.appwrite.network/','https://meat-store.appwrite.network/login')
         } catch (error) {
             console.log(error,"error when signing in with google");
         }
