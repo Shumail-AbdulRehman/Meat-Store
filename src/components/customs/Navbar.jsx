@@ -199,7 +199,7 @@ function Navbar() {
           <Link
             to={"/cart"}
             onClick={() => setSideOpen(false)}
-            className="mt-4 flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition"
+            className="mt-4 flex items-center gap-2 px-4 py-2 bg-black text-white font-semibold rounded-lg hover:bg-red-700 transition"
           >
             <ShoppingCart size={18} />
             Cart
@@ -218,7 +218,7 @@ function Navbar() {
             <Link
               to={"/login"}
               onClick={() => setSideOpen(false)}
-              className="mt-4 px-5 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition"
+              className="mt-4 px-5 py-2 bg-black text-white font-semibold rounded-lg hover:bg-red-700 transition"
             >
               Sign In
             </Link>
