@@ -3,6 +3,7 @@ import { ShoppingCart, Menu, X } from "lucide-react"
 import { Link, NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Logout from './Logout'
+import Marquee from "react-fast-marquee";
 
 function Navbar() {
   const totalCartItems = useSelector((state) => state.cart.totalQuantity)
@@ -10,7 +11,25 @@ function Navbar() {
   const [sideOpen, setSideOpen] = useState(false);
 
   return (
-    <header className="bg-[#C62828]  shadow-sm">
+
+    <div>
+
+      <div className="bg-red-600 text-white font-bold uppercase tracking-wide py-2">
+      <Marquee gradient={false} speed={50}>
+        <span className="mx-10 text-lg font-bold">
+  🥩 100% Fresh & Halal Meat — Delivered to Your Doorstep &nbsp; | &nbsp;        </span>
+        <span className="mx-10 text-lg font-bold">
+  💳 Easy & Secure Payment Options Available &nbsp; | &nbsp;        </span>
+        <span className="mx-10 text-lg font-bold">
+          💳 Easy payment  🚚 Fast Delivery — Always Fresh, Always Reliable &nbsp; 
+        </span>
+        <span className="mx-10 text-lg font-bold">
+  🔥 Premium Quality Meat at Affordable Prices &nbsp; | &nbsp;        </span>
+        <span className="mx-10 text-lg font-bold">
+  ✅ Trusted by Families for Fresh Halal Meat Everyday        </span>
+      </Marquee>
+    </div>
+          <header className="bg-gradient-to-br from-black via-neutral-900 to-neutral-800  shadow-sm">
       <div className="flex justify-between items-center px-6 py-4">
         <div className="flex items-center gap-2">
           <span className="text-2xl font-extrabold tracking-wide text-white">
@@ -67,7 +86,7 @@ function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           <Link
             to={"/cart"}
-            className="relative flex cursor-pointer items-center gap-2 px-4 py-2 bg-white text-red-600 font-semibold rounded-lg border border-gray-200 hover:bg-gray-200 transition"
+            className="relative flex cursor-pointer items-center gap-2 px-4 py-2 bg-white text-black font-semibold rounded-lg border border-gray-200 hover:bg-gray-200 transition"
           >
             <ShoppingCart size={18} />
             Cart
@@ -83,7 +102,7 @@ function Navbar() {
           ) : (
             <Link
               to={"/login"}
-              className="px-5 py-2 bg-white text-red-600 font-semibold rounded-lg border border-gray-200 hover:bg-gray-100 transition"
+              className="px-5 py-2 bg-white text-black font-semibold rounded-lg border border-gray-200 hover:bg-gray-200 transition"
             >
               Sign In
             </Link>
@@ -207,6 +226,8 @@ function Navbar() {
         </div>
       )}
     </header>
+    </div>
+
   )
 }
 
