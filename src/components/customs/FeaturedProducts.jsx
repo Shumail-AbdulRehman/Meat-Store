@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import userService from "../../appwrite/services"
 import ProductCard from "./ProductCard"
 import LoadingSpinner from "./LoadingSpinner"
+import { Link } from "react-router-dom"
 
 function FeaturedProducts() {
   const [loading, setLoading] = useState(false)
@@ -44,9 +45,9 @@ function FeaturedProducts() {
         ) : (
           <div className="flex flex-wrap justify-center gap-10">
             {featuredProducts.map((product) => (
-              <div key={product.$id} className="flex-shrink-0">
+              <Link to={`/categories/${product.$id}`} key={product.$id} className="flex-shrink-0">
                 <ProductCard product={product} />
-              </div>
+              </Link>
             ))}
           </div>
         )}

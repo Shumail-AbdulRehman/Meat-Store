@@ -20,11 +20,11 @@ function Product() {
         dispatch(addItem({ product, quantity }));    }
 
 
-      useEffect(()=>
-      {
-        console.log("product is=>",product);
+      // useEffect(()=>
+      // {
+      //   console.log("product is=>",product);
 
-      },[product])
+      // },[product])
 
   useEffect(()=>
     {
