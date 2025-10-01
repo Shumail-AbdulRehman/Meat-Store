@@ -5,39 +5,39 @@ import { useDispatch } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 import LoadingSpinner from './components/customs/LoadingSpinner'
 import authService from './appwrite/auth' 
-import { login,logout } from './store/authSlice'
+import { login, logout } from './store/authSlice'
 import Footer from './components/customs/Footer'
+import { Toaster } from "@/components/ui/sonner"  
 
 function App() {
   const [loading,setLoading]=useState(true)
   const dispatch=useDispatch()
 
-  useEffect(()=>
-  {
+  useEffect(() => {
     authService.getCurrentUser()
-    .then((userData)=>
-    {
-      if(userData)
-      {
-        dispatch(login(userData))
-      }
-      else
-      {
-        dispatch(logout())
-      }
-    })
-    .finally(()=>
-    {
-      setLoading(false)
-    })  
-  },[])
-  return loading? <LoadingSpinner text='Loading...'/>: <div>
-    <Navbar/>
-    <Outlet/>
-    <Footer/>
+      .then((userData) => {
+        if (userData) {
+          dispatch(login(userData))
+        } else {
+          dispatch(logout())
+        }
+      })
+      .finally(() => {
+        setLoading(false)
+      })  
+  }, [])
 
-  </div>
-
+  return loading ? (
+    <LoadingSpinner text='Loading...' />
+  ) : (
+    <div>
+      <Navbar />
+      <Outlet />
+      <Footer />
+      
+      <Toaster position="top-right" richColors closeButton />
+    </div>
+  )
 }
 
 export default App

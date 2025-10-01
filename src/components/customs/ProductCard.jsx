@@ -4,6 +4,7 @@ import { ShoppingCart } from "lucide-react";
 import checking from "../../assets/checking.jpeg";
 import { addItem } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
+import { toast } from "sonner"
 
 function ProductCard({ product }) {
 
@@ -11,7 +12,17 @@ function ProductCard({ product }) {
   const quantity=1
   const addToCart=(product)=>
   {
+
       dispatch(addItem({product,quantity}))
+      toast.success(`${product.title} added to cart 🛒`, {
+  description: "Check your cart to proceed with checkout.",
+  style: {
+    backgroundColor: "#dc2626", 
+    color: "#000000",
+    border: "1px solid #991b1b", 
+  }
+})
+
   }
   return (
     <div className="bg-white rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all overflow-hidden w-full max-w-xs border border-gray-200">
