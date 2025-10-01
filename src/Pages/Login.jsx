@@ -25,7 +25,7 @@ useEffect(() => {
   const fetchUser = async () => {
     try {
       const userData = await authService.getCurrentUser();
-      if (user) {
+      if (userData) {
         dispatch(login(userData));
       }
     } catch (err) {
