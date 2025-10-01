@@ -5,6 +5,7 @@ import userService from '../appwrite/services';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../store/cartSlice';
 import RelatedProducts from '../components/customs/RelatedProducts';
+import { toast } from "sonner"
 
 function Product() {
     const dispatch=useDispatch();
@@ -17,7 +18,18 @@ function Product() {
   
     const addToCart=()=>
     {
-        dispatch(addItem({ product, quantity }));    }
+        dispatch(addItem({ product, quantity })); 
+        toast.success(`${product?.title} added to cart 🛒`, {
+  description: "Check your cart to proceed with checkout.",
+  style: {
+    backgroundColor: "#FFFFFF", 
+    color: "#dc2626",
+    border: "1px solid #991b1b", 
+  }
+})
+      
+      }
+        
 
 
       // useEffect(()=>

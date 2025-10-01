@@ -17,8 +17,8 @@ function ProductCard({ product }) {
       toast.success(`${product.title} added to cart 🛒`, {
   description: "Check your cart to proceed with checkout.",
   style: {
-    backgroundColor: "#dc2626", 
-    color: "#000000",
+    backgroundColor: "#FFFFFF", 
+    color: "#dc2626",
     border: "1px solid #991b1b", 
   }
 })
