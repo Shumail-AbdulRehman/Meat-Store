@@ -36,17 +36,18 @@ useEffect(() => {
   fetchUser();
 }, []);
 
-  const loginWithGoogle = async () => {
+ const loginWithGoogle = async () => {
   try {
-    // setLoading(true);
+    console.log("Starting Google OAuth...");
+    setLoading(true);
     await authService.createAccountWithGoogle();
+    console.log("OAuth redirect should happen now");
   } catch (error) {
     console.error("Google login error:", error);
     setMessage("Failed to sign in with Google");
     setLoading(false);
   }
 };
-
   const onSubmit = async (data) => {
     setMessage(null);
     setLoading(true);
