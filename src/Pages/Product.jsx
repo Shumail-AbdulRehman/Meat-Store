@@ -4,7 +4,7 @@ import LoadingSpinner from '../components/customs/LoadingSpinner';
 import userService from '../appwrite/services';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../store/cartSlice';
-
+import RelatedProducts from '../components/customs/RelatedProducts';
 
 function Product() {
     const dispatch=useDispatch();
@@ -12,11 +12,19 @@ function Product() {
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [product,setProduct]=useState(null);
+  // const [productId,setProductId]=useState(null);
+  // const [productCategory,setProductCategory]=useState(null);
   
     const addToCart=()=>
     {
         dispatch(addItem({ product, quantity }));    }
 
+
+      useEffect(()=>
+      {
+        console.log("product is=>",product);
+
+      },[product])
 
   useEffect(()=>
     {
@@ -25,7 +33,12 @@ function Product() {
             try {
                 setLoading(true)
                 const fetchProduct=await userService.getProduct(id);
-                if(fetchProduct) setProduct(fetchProduct);
+                if(fetchProduct)
+                  {
+                    setProduct(fetchProduct);
+                    // setProductId(fetchProduct.$id)
+                    // setProductCategory(fetchProduct.category);
+                  } 
             } catch (error) {
                 console.log(error);
             } finally
@@ -57,7 +70,7 @@ function Product() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-100 flex flex-col  items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-sm max-w-4xl w-full flex flex-col md:flex-row overflow-hidden">
         <div className="md:w-1/2 bg-white flex items-center justify-center p-6">
           <img
@@ -147,7 +160,13 @@ function Product() {
 </button>
 
         </div>
-      </div>
+      </div>  
+<div className="xl:w-300 w-80 lg:w-200 mx-auto h-3 mt-20 rounded-full bg-gradient-to-r from-red-400 via-red-600 to-red-400 shadow-lg"></div>
+
+      <RelatedProducts 
+      productId={product?.$id}
+      productCategory={product?.category}
+      />
     </div>
   );
 }
