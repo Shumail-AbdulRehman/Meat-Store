@@ -36,13 +36,16 @@ useEffect(() => {
   fetchUser();
 }, []);
 
-  const loginWithGoogle=async()=>
-  {
-    setLoading(true)
-    authService.createAccountWithGoogle();
-    setLoading(false)
-    
+  const loginWithGoogle = async () => {
+  try {
+    // setLoading(true);
+    await authService.createAccountWithGoogle();
+  } catch (error) {
+    console.error("Google login error:", error);
+    setMessage("Failed to sign in with Google");
+    setLoading(false);
   }
+};
 
   const onSubmit = async (data) => {
     setMessage(null);

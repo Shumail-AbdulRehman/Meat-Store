@@ -1,5 +1,5 @@
 import conf from '../conf/conf.js';
-import { Client, Account, ID } from "appwrite";
+import { Client, Account, ID,OAuthProvider } from "appwrite";
 
 export class AuthService {
     client = new Client();
@@ -55,14 +55,18 @@ export class AuthService {
         }
     }
 
-    async createAccountWithGoogle()
-    {
-        try {
-            this.account.createOAuth2Session(OAuthProvider.google,'https://meat-store.appwrite.network/','https://meat-store.appwrite.network/login')
-        } catch (error) {
-            console.log(error,"error when signing in with google");
-        }
-    }
+   async createAccountWithGoogle() {
+  try {
+    await this.account.createOAuth2Session(
+      OAuthProvider.Google,  
+      `${window.location.origin}/`,
+      `${window.location.origin}/login`
+    );
+  } catch (error) {
+    console.log(error, "error when signing in with google");
+    throw error;
+  }
+}
 }
 
 const authService = new AuthService();
