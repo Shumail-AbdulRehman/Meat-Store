@@ -159,7 +159,7 @@ useEffect(() => {
          
         </form>
 
-         {/* <button
+         <button
 
             onClick={loginWithGoogle}
             disabled={loading}
@@ -167,7 +167,7 @@ useEffect(() => {
           >
             <LogIn size={18} />
             {loading ? "Signing In..." : "Continue With Google"}
-          </button> */}
+          </button>
 
         <p className="text-white text-md text-center mt-6">
           Don't have an account{" "}
