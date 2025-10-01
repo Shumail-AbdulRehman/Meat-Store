@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import userService from '../../appwrite/services'
 import LoadingSpinner from './LoadingSpinner';
 import ProductCard from './ProductCard';
+import { Link } from 'react-router-dom';
 
 function RelatedProducts({productCategory,productId}) {
 
@@ -60,9 +61,9 @@ function RelatedProducts({productCategory,productId}) {
         ) : (
           <div className="flex flex-wrap justify-center gap-10">
             {relatedProducts.map((product) => (
-              <div key={product.$id} className="flex-shrink-0">
+              <Link to={`/categories/${product.$id}`} key={product.$id} className="flex-shrink-0">
                 <ProductCard product={product} />
-              </div>
+              </Link>
             ))}
           </div>
         )}
