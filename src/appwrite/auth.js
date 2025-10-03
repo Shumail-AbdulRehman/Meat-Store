@@ -1,72 +1,75 @@
-        import conf from '../conf/conf.js';
-        import { Client, Account, ID,OAuthProvider } from "appwrite";
+            import conf from '../conf/conf.js';
+            import { Client, Account, ID,OAuthProvider } from "appwrite";
 
-        export class AuthService {
-            client = new Client();
-            account;
+            export class AuthService {
+                client = new Client();
+                account;
 
-            constructor() {
-                this.client
-                    .setEndpoint(conf.appwriteUrl)
-                    .setProject(conf.appwriteProjectId);
+                constructor() {
+                    this.client
+                        .setEndpoint(conf.appwriteUrl)
+                        .setProject(conf.appwriteProjectId);
 
-                this.account = new Account(this.client);
-            }
-
-            async createAccount({ email, password, name }) {
-                try {
-                    const userAccount = await this.account.create(
-                        ID.unique(),
-                        email,
-                        password,
-                        name
-                    );
-                    console.log("Account created successfully:", userAccount);
-                    return userAccount;
-                } catch (error) {
-                    console.log("Error creating account:", error);
-                    throw error;
+                    this.account = new Account(this.client);
                 }
-            }
 
-            async login({ email, password }) {
-                try {
-                    return await this.account.createEmailPasswordSession(email, password);
-                } catch (error) {
-                    console.log("Login error:", error);
-                    throw error;
+                async createAccount({ email, password, name }) {
+                    try {
+                        const userAccount = await this.account.create(
+                            ID.unique(),
+                            email,
+                            password,
+                            name
+                        );
+                        console.log("Account created successfully:", userAccount);
+                        return userAccount;
+                    } catch (error) {
+                        console.log("Error creating account:", error);
+                        throw error;
+                    }
                 }
-            }
 
-            async getCurrentUser() {
-                try {
-                    return await this.account.get();
-                } catch (error) {
-                    console.log(error);
-                    return null;
+                async login({ email, password }) {
+                    try {
+                        return await this.account.createEmailPasswordSession(email, password);
+                    } catch (error) {
+                        console.log("Login error:", error);
+                        throw error;
+                    }
                 }
-            }
 
-            async logOut() {
-                try {
-                    await this.account.deleteSessions();
-                } catch (error) {
-                    console.log(error);
+                async getCurrentUser() {
+                    try {
+                        return await this.account.get();
+                    } catch (error) {
+                        console.log(error);
+                        return null;
+                    }
                 }
+
+                async logOut() {
+                    try {
+                        await this.account.deleteSessions();
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }
+
+            async createAccountWithGoogle() {
+  try {
+    await this.account.createOAuth2Session(
+      OAuthProvider.Google, 
+      "https://meat-store.appwrite.network/",
+      "https://meat-store.appwrite.network/login",
+      ['email', 'profile'],
+      ['select_account'] // Add this parameter
+    );
+  } catch (error) {
+    console.log(error, "error when signing in with google");
+    throw error;
+  }
+}
             }
 
-        async createAccountWithGoogle() {
-        try {
-            await this.account.createOAuth2Session(
-            OAuthProvider.Google,  "https://meat-store.appwrite.network/",
-            "https://meat-store.appwrite.network/login"
-            );
-        } catch (error) {
-            console.log(error, "error when signing in with google");
-            throw error;
-        }
-        }
-        }
-
-        const authService = new AuthService();
-        export default authService;
+            const authService = new AuthService();
+            export default authService;
