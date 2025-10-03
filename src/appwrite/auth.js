@@ -62,7 +62,7 @@
       "https://meat-store.appwrite.network/",
       "https://meat-store.appwrite.network/login",
       ['email', 'profile'],
-      ['select_account'] // Add this parameter
+      ['select_account'] 
     );
   } catch (error) {
     console.log(error, "error when signing in with google");
